@@ -1,0 +1,151 @@
+# System Resource Monitor Chatbot - Main Entry Point
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Resource Monitor Chatbot</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Dashboard Component -->
+        <div class="dashboard">
+            <div class="header">
+                <h1>🖥️ System Resource Monitor</h1>
+                <p>Real-time monitoring and AI-powered insights • OS Theory Demonstration</p>
+            </div>
+
+            <div id="alertContainer"></div>
+
+            <!-- Metrics Grid Component -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-title">CPU Usage</span>
+                        <span class="metric-icon">⚡</span>
+                    </div>
+                    <div class="metric-value" id="cpuValue">0%</div>
+                    <div class="metric-label">Current load across all cores</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="cpuProgress"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-title">Memory Usage</span>
+                        <span class="metric-icon">💾</span>
+                    </div>
+                    <div class="metric-value" id="memoryValue">0%</div>
+                    <div class="metric-label" id="memoryLabel">0 GB used of 0 GB</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="memoryProgress"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-title">Disk I/O</span>
+                        <span class="metric-icon">💿</span>
+                    </div>
+                    <div class="metric-value" id="diskValue">0 MB/s</div>
+                    <div class="metric-label">Read/Write operations</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="diskProgress"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-title">Network</span>
+                        <span class="metric-icon">🌐</span>
+                    </div>
+                    <div class="metric-value" id="networkValue">0 KB/s</div>
+                    <div class="metric-label">Upload/Download speed</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="networkProgress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Table Component -->
+            <div class="process-table">
+                <h2>Top Resource-Consuming Processes</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Process Name</th>
+                                <th>PID</th>
+                                <th>CPU %</th>
+                                <th>Memory</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="processTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Component -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>AI Resource Assistant</h2>
+                <div class="chat-status">
+                    <span class="status-dot"></span>
+                    <span>Online • Ready to help</span>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="message">
+                    <div class="message-avatar">AI</div>
+                    <div>
+                        <div class="message-content">
+                            👋 Hello! I'm your System Resource Monitor assistant. I can help you understand your system's performance and explain OS concepts.
+                            <br><br>
+                            Try asking me about:
+                            <br>
+                            <span class="suggestion-chip">CPU usage</span>
+                            <span class="suggestion-chip">Memory management</span>
+                            <span class="suggestion-chip">Process scheduling</span>
+                            <span class="suggestion-chip">Disk I/O</span>
+                        </div>
+                        <div class="message-time" id="initialTime"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="quick-actions">
+                    <button class="quick-action-btn" data-message="What is my current CPU usage?">CPU Status</button>
+                    <button class="quick-action-btn" data-message="Show me memory usage">Memory Info</button>
+                    <button class="quick-action-btn" data-message="Which processes are using most resources?">Top Processes</button>
+                    <button class="quick-action-btn" data-message="Explain virtual memory">OS Concepts</button>
+                </div>
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask about system resources or OS concepts...">
+                    <button class="send-btn" id="sendBtn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script src="js/config.js"></script>
+    <script src="js/systemMonitor.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+```
